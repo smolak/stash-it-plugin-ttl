@@ -62,11 +62,13 @@ ttlData = {
 
 ## touch(key)
 
-This is an additional method, that the plugin will add to cache instance.
+This is an additional method, that the plugin will extend the cache instance with.
 Using it, on a given item, represented by its `key`, will refresh the
 `validTill` property in `ttlData` stored in `extra` of that item.
 
-Returns `ttlData` with updated `validTill` value.
+Returns `ttlData` with updated `validTill` value upon success.
+
+If item is not present or item doesn't have `ttlData` in `extra` - returns false.
 
 If you try to `touch` an item that does not exist, this method will
 return `false`.
