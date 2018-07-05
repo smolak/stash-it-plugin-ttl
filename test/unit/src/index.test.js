@@ -147,7 +147,7 @@ describe('Ttl plugin', () => {
 
         it('should return an object', () => {
             const plugin = createTtlPlugin();
-            const extensions = plugin.createExtensions();
+            const extensions = plugin.createExtensions({ cacheInstance: {} });
 
             expect(extensions).to.be.an('object');
         });
@@ -179,12 +179,12 @@ describe('Ttl plugin', () => {
             }
 
             function buildExtensions(cacheInstance) {
-                return createTtlPlugin().createExtensions(cacheInstance);
+                return createTtlPlugin().createExtensions({ cacheInstance });
             }
 
             it('should be a function', () => {
                 const plugin = createTtlPlugin();
-                const extensions = plugin.createExtensions();
+                const extensions = plugin.createExtensions({ cacheInstance: {} });
 
                 expect(extensions.touch).to.be.a('function');
             });

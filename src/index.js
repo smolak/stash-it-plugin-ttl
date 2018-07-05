@@ -4,7 +4,7 @@ function getCurrentDateTime() {
 
 export default function ttl() {
     return {
-        createExtensions: (cacheInstance) => {
+        createExtensions: ({ cacheInstance }) => {
             return {
                 touch: (key) => {
                     const extra = cacheInstance.getExtra(key);
